@@ -21,4 +21,6 @@ onMounted( async() => {
     <h1 class="text-xl font-bold nb-4">Random Meals</h1>
   </div>
   <meals :meals="meals"></meals>
+
+  
 </template>
