@@ -1,6 +1,23 @@
 <script setup>
+import {ref, onMounted, computed} from 'vue'
+import useAPI from '@/composables/useAPI';
 
+const { api } = useAPI()
+
+const keyword = ref('')
+const ingredients = ref([])
+
+onMounted(() => {
+    api.get('list.php?i=list')
+        .then( ({data}) => {
+        ingredients.value = data.meals
+    })
+})
 </script>
 <template>
-    
+    <div class="p-8 pb-0 text-orange-500">
+        <h1 class="text-xl font-bold nb-4">Search Meals By Ingredient</h1>
+    </div>
+
+    {{ ingredients }}
 </template>
